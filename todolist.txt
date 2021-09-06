@@ -1,0 +1,50 @@
+
+first 
+npm i,
+second
+npm start
+
+Tailwind docs(https://tailwindcss.com/docs)
+Todolist
+event a-> not reset page  reuse
+
+conponment
+
+dashboard
+
+
+helper 
+constant path
+auth i
+
+OOP ||  func 
+
+Register Page and Login Page:(Hanh  && minh)
+-Recapcha.(https://www.npmjs.com/package/react-google-recaptcha)
+-Login with google.(https://firebase.google.com/docs/auth/web/google-signin)
+-Reset Password(https://firebase.google.com/docs/auth/web/manage-users).
+-Handle 404 err(https://ultimatecourses.com/blog/react-router-not-found-component)
+-Optimize UI, make it better.
+
+Dashboard page(hardest): (Viet && dang && trong && tien)
+
+Loading course (you can use anything, but i am prefer using query and field value to get it. then we can using map to get it)(e.g)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+
+ enrollment key && edit ? 
+ upload image pdf video ? (https://dev.to/itnext/how-to-do-image-upload-with-firebase-in-react-cpj)
+ header 
+session ? 
+
+cloud
+api context map firebase query ? 
+
+(e.g: https://firebase.google.com/docs/firestore/query-data/get-data)
+
+Dropdown page]:
+
+change profile pic and update bio(same with upload file)
+
+change password (https://firebase.google.com/docs/auth/web/manage-users)
+
+verify
