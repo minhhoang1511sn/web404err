@@ -18,10 +18,16 @@ function Login() {
       const res = await socialMediaAuth(provider);
       console.log(res);
     }
+
+ function resetRecaptcha()
+ {
+   window.grecaptcha.reset();
+ }
+
     function onChange(enabledButton) {
      setEnableButton(true);
+     
     }
-
     const handleFirebaseLogin = async (formValues) => {
         const { email, password } = formValues;
     
@@ -32,6 +38,7 @@ function Login() {
           window.location.reload();
         } catch (error) {
           setServerError(error.message);
+          
         }
       };
     return (<>
@@ -98,10 +105,13 @@ function Login() {
                 )}
                 
                 <ReCAPTCHA
+                
                   sitekey="6Lf7PkgcAAAAACdG0qV65G_O28FjXyQu95pNzPMt"
                   onChange = {()=>{onChange(isValid)}}
+                  onVerify={()=>{resetRecaptcha()}}
                    />
                 <button
+                onClick={resetRecaptcha}
                   type="submit"
                   aria-label="Login to your account"
                   disabled={!enabledButton}
