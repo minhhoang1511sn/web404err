@@ -21,9 +21,9 @@ function Resetpassword() {
   });
     } 
     return (
-     
-        <div className="flex flex-col items-center bg-white px-5 mt-100  py-6  border border-gray-primary mb-3 rounded">
+     <div className="flex flex-col items-center bg-white px-5 mt-100  py-6  border border-gray-primary mb-3 rounded"><div >
             <form >
+              <h4>Enter your email address: </h4>
             <input type="text" 
             className="text-sm focus:ring-gray-700 focus:border-gray-400 
             text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" 
@@ -32,7 +32,8 @@ function Resetpassword() {
                      (isInvalid) &&'opacity-50 cursor-not-allowed'
                     }`} type="submit"  disabled={isInvalid} onClick={handleResetPassword}>Test </button>
         </form>
-        </div>
+        </div></div>
+        
     )
 }
 

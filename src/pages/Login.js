@@ -4,11 +4,11 @@ import { UserLoginSchema } from '../helpers/validation';
 import { Formik, Field, Form } from 'formik';
 import { useFirebaseContext } from '../context/firebase';
 import { Link } from 'react-router-dom';
-import socialMediaAuth from '../service/auth';
-import { googleProvider } from './authMethod';
+import socialMediaAuth,{googleProvider} from '../service/auth';
 import ReCAPTCHA from "react-google-recaptcha";
 
 
+const check = false;
 function Login() {
   const [enabledButton,setEnableButton]= useState(false);
   const [serverError, setServerError] = useState('');
@@ -19,14 +19,9 @@ function Login() {
       console.log(res);
     }
 
- function resetRecaptcha()
- {
-   window.grecaptcha.reset();
- }
-
-    function onChange(enabledButton) {
+    function onChange() {
      setEnableButton(true);
-     
+
     }
     const handleFirebaseLogin = async (formValues) => {
         const { email, password } = formValues;
@@ -36,6 +31,7 @@ function Login() {
         
           history.push('/');
           window.location.reload();
+          check = true;
         } catch (error) {
           setServerError(error.message);
           
@@ -65,6 +61,7 @@ function Login() {
                 setSubmitting(false);
                 setServerError('Wrong password or username')
                 resetForm();
+                setEnableButton(false);
               }
             }}
           >
@@ -105,17 +102,15 @@ function Login() {
                 )}
                 
                 <ReCAPTCHA
-                
                   sitekey="6Lf7PkgcAAAAACdG0qV65G_O28FjXyQu95pNzPMt"
-                  onChange = {()=>{onChange(isValid)}}
-                  onVerify={()=>{resetRecaptcha()}}
+                  onChange = {()=>{onChange()}}
                    />
                 <button
-                onClick={resetRecaptcha}
+                  
                   type="submit"
                   aria-label="Login to your account"
                   disabled={!enabledButton}
-                  className={`bg-blue-medium text-white w-full rounded h-8 mt-1 font-semibold ${
+                  className={`bg-blue-medium text-white w-full rounded h-8 mt-1 font-semibold but ${
                     (!enabledButton||!isValid) &&
                     'opacity-50 cursor-not-allowed'
                   }`}
@@ -131,7 +126,7 @@ function Login() {
                 <div className="border-b border-gray-primary w-full flex justify-center mt-5 mb-3"><p className="transform translate-y-2 uppercase bg-white max-w-max px-5 text-xs text-gray-400 font-semibold select-none"></p></div>
                    <div className="form-group text-center mt-3">
                       <Link className='#60A5FA'  to='./Resetpassword' >
-                                <span className="fa fa-google text-sm ">Forgot password?</span ></Link>
+                                <span className="fa fa-google text-sm  " >Forgot password?</span ></Link>
                             </div>
               </Form>
             )}
