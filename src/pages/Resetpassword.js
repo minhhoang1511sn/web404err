@@ -21,18 +21,26 @@ function Resetpassword() {
   });
     } 
     return (
-     <div className="flex flex-col items-center bg-white px-5 mt-100  py-6  border border-gray-primary mb-3 rounded"><div >
+      <div style={{paddingTop:"200px", paddingRight:"550px", paddingLeft:"550px"}}>
+        <div className="flex flex-col items-center bg-white px-5 mt-100  py-6  border border-gray-primary mb-3 rounded">
+          <div >
             <form >
               <h4>Enter your email address: </h4>
-            <input type="text" 
-            className="text-sm focus:ring-gray-700 focus:border-gray-400 
-            text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" 
-            onChange={e=>setForgotEmail(e.target.value)} /> 
-          <button className={`bg-blue-medium text-white w-full rounded h-8 mt-1 font-semibold ${
+              <input type="text" 
+              className="text-sm focus:ring-gray-700 focus:border-gray-400 
+              text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2" 
+               onChange={e=>setForgotEmail(e.target.value)} /> 
+                    <button className={`bg-blue-medium text-white w-full rounded h-8 mt-1 font-semibold ${
                      (isInvalid) &&'opacity-50 cursor-not-allowed'
                     }`} type="submit"  disabled={isInvalid} onClick={handleResetPassword}>Test </button>
+                    <div style={{textAlign:"center"}}>
+                    <a className="font-semibold text-blue-medium" href="/Login"> Back to Login Page</a>
+                    </div>
         </form>
-        </div></div>
+        </div>
+        </div>
+      </div>
+     
         
     )
 }

@@ -166,6 +166,9 @@ function Register() {
                   use and share your data in our Data Policy and how we use
                   cookies and similar technology in our Cookies Policy .
                 </p>
+                <div style={{textAlign:"center"}}>
+                    <a className="font-semibold text-blue-medium" href="/Login"> Back to Login Page</a>
+                    </div>
               </Form>
             )}
           </Formik>

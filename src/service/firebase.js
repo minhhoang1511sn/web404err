@@ -1,4 +1,4 @@
-import { firebase, FieldValue } from '../lib/firebase';
+ import { firebase, FieldValue } from '../lib/firebase';
 const _DB = firebase.firestore();
 
 export async function doesUserExist(username) {

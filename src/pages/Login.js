@@ -4,9 +4,9 @@ import { UserLoginSchema } from '../helpers/validation';
 import { Formik, Field, Form } from 'formik';
 import { useFirebaseContext } from '../context/firebase';
 import { Link } from 'react-router-dom';
-import socialMediaAuth,{googleProvider} from '../service/auth';
+import socialMediaAuth,{facebookProvider, githubProvider, googleProvider} from '../service/auth';
 import ReCAPTCHA from "react-google-recaptcha";
-
+import google from "./img/search.svg"
 
 const check = false;
 function Login() {
@@ -126,19 +126,23 @@ function Login() {
                 <div className="border-b border-gray-primary w-full flex justify-center mt-5 mb-3"><p className="transform translate-y-2 uppercase bg-white max-w-max px-5 text-xs text-gray-400 font-semibold select-none"></p></div>
                    <div className="form-group text-center mt-3">
                       <Link className='#60A5FA'  to='./Resetpassword' >
-                                <span className="fa fa-google text-sm  " >Forgot password?</span ></Link>
+                                <span className="fa fa-google text-sm  " >Forgot password? </span ></Link>||
+                                <a className="font-semibold text-blue-medium" href="/register"> Sign Up</a>
                             </div>
               </Form>
             )}
           </Formik>
            </div>
-            <div className="flex flex-col items-center bg-white px-5   py-6  border border-gray-primary mb-3 rounded">
-              <p className="text-sm">Don't have an account? <a className="font-semibold text-blue-medium" href="/register">Sign Up</a></p>
-            </div>
             {/* login with google */}
-             <div className="flex flex-col items-center bg-white px-5   py-6  border border-gray-primary mb-3 rounded">
-              <button onClick={()=>handleOnclick(googleProvider)} type="submit" aria-label="Login to your account" className={`bg-red-600 text-white w-full rounded h-8 font-semibold `}  >
-                 Login with google
+             <div className="items-center bg-white px-5   py-6  border border-gray-primary mb-3 rounded">
+              <button onClick={()=>handleOnclick(googleProvider)} type="submit" aria-label="Login with google" style={{paddingLeft:"90px", paddingRight:"10px"}}  >
+                 <img src="https://img.icons8.com/color/48/000000/google-logo.png"/>
+                </button>
+                <button onClick={()=>handleOnclick(facebookProvider)} type="submit" aria-label="Login with facebook" style={{ paddingRight:"10px"}} >
+                <img src="https://img.icons8.com/fluency/48/000000/facebook-new.png"/>
+                </button>
+                <button onClick={()=>handleOnclick(githubProvider)} type="submit" aria-label="Login with github" style={{ paddingRight:"10px"}}  >
+                <img src="https://img.icons8.com/ios-filled/50/000000/github.png"/>
                 </button>
             </div>
             
