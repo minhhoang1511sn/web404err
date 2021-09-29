@@ -5,6 +5,8 @@ import { Formik, Field, Form } from 'formik';
 import { useFirebaseContext } from '../context/firebase';
 import * as ROUTES from '../constant/routes'
 import { doesUserExist, createFirestoreUser } from '../service/firebase';
+import Background from './img/RegisterBackground.png'
+import register from './img/registered.svg'
 
 function Register() {
   const [serverError, setServerError] = useState('');
@@ -72,7 +74,9 @@ function Register() {
     return (<>
         <div className="container flex mx-auto max-w-screen-md items-center justify-center h-screen">
         <div className="md:flex md:w-3/6 hidden">
-            <p>This is left</p>
+        <div style={{marginRight:"100px"}}>
+        <img   src={Background}></img>
+        </div>
         </div>
         <div className="flex flex-col md:w-3/5 w-full  border-2 max-w-sm">
           <div className="flex flex-col items-center bg-white px-5 py-9 border border-gray-primary mb-3 rounded">
@@ -99,8 +103,11 @@ function Register() {
               }
             }}
           >
+            
             {({ isSubmitting, isValid, errors, touched }) => (
               <Form className="w-full">
+                 <img style={{width:"90px",marginLeft:"120px",marginBottom:"5px"}} src={register}></img>
+                 <h1 style={{textAlign:'center', fontSize:'30px', fontWeight:'bold',paddingBottom:'10px'}}>Sign Up</h1>
                 <Field
                   type="text"
                   name="username"
@@ -152,6 +159,7 @@ function Register() {
                 <button
                   type="submit"
                   aria-label="Login to your account"
+                  
                   disabled={!isValid}
                   className={`bg-blue-medium text-white w-full rounded h-8 mt-1 font-semibold ${
                     (!isValid || isSubmitting) &&

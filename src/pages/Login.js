@@ -6,7 +6,9 @@ import { useFirebaseContext } from '../context/firebase';
 import { Link } from 'react-router-dom';
 import socialMediaAuth,{facebookProvider, githubProvider, googleProvider} from '../service/auth';
 import ReCAPTCHA from "react-google-recaptcha";
-import google from "./img/search.svg"
+import user from "./img/user.svg"
+import Background from "./img/Study.png"
+
 
 const check = false;
 function Login() {
@@ -39,8 +41,10 @@ function Login() {
       };
     return (<>
         <div className="container flex mx-auto max-w-screen-md items-center justify-center h-screen">
-        <div className="md:flex md:w-3/6 hidden">
-            <p>This is left</p>
+        <div style={{boxSizing:'border-box',alignItems:'center'}}  className="md:flex md:w-3/6 hidden">
+          <div style={{marginRight:"100px"}}>
+        <img   src={Background}></img>
+        </div>
         </div>
         <div className="flex flex-col md:w-3/5 w-full max-w-sm">
           <div className="flex flex-col items-center bg-white px-5   py-6  border border-gray-primary mb-3 rounded">
@@ -67,7 +71,8 @@ function Login() {
           >
             {({ isSubmitting, isValid, errors, touched }) => (
               <Form className="w-full">
-             
+             <img style={{width:"90px",marginLeft:"120px",marginBottom:"5px"}} src={user}></img>
+             <h1 style={{textAlign:'center', fontSize:'30px', fontWeight:'bold',paddingBottom:'10px'}}>Sign In</h1>
                 {errors.username && touched.username && (
                   <p className="mb-3 pl-1 text-xs text-red-primary">
                     {errors.username}
@@ -110,6 +115,7 @@ function Login() {
                   type="submit"
                   aria-label="Login to your account"
                   disabled={!enabledButton}
+                  
                   className={`bg-blue-medium text-white w-full rounded h-8 mt-1 font-semibold but ${
                     (!enabledButton||!isValid) &&
                     'opacity-50 cursor-not-allowed'
